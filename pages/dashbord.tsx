@@ -1,3 +1,5 @@
+import withAuth from '../utils/auth/wthAuth'
+
 const DashBord = () => {
   return(
     <div>
@@ -6,4 +8,4 @@ const DashBord = () => {
   )
 }
 
-export default DashBord
+export default withAuth(DashBord)

@@ -11,8 +11,8 @@ const config = {
   appId: process.env.FIREBASE_APP_ID
 }
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(config);
+export default function initFirebase() {
+  if (!firebase.apps.length) {
+    firebase.initializeApp(config)
+  }
 }
-const auth = firebase.auth();
-export { auth, firebase };

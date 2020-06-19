@@ -1,20 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useUser } from '../utils/auth/useUser';
 
 export default function Home() {
+  const { user } = useUser()
   return (
     <div className="container">
       <Head>
         <title>mezamemo</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <h1>mezamemo</h1>
-        <Link href='/dashbord'>
-          <a >DashBord</a>
-        </Link>
-      </main>
+      {
+        !user 
+          ? <Link href='/auth'>
+              <a>Sign in</a>
+            </Link>
+          : <main>
+              <h1>mezamemo</h1>
+              <Link href='/dashbord'>
+                <a >DashBord</a>
+              </Link>
+            </main>
+      }
 
       <style jsx>{`
 
